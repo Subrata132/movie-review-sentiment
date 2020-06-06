@@ -164,12 +164,12 @@ if retrain==True :
     model.compile(loss='binary_crossentropy',optimizer='adam',metrics=['accuracy'])
     model.summary()
     model.fit(Xtrain,Ytrain,epochs=epochs)
-    model_name='sentNet1.hdf5'
+    model_name='sentNet.hdf5'
     model_name=curdir+'/models/'+model_name
     model.save(model_name)
     
 else :
-    model_name='sentNet1.hdf5'
+    model_name='sentNet.hdf5'
     model_name=curdir+'/models/'+model_name
     model=load_model(model_name)
     model.summary()
@@ -181,7 +181,7 @@ _,test_acc=model.evaluate(Xtest,Ytest)
 print('Trainning Accuracy: %.3f%%'% (train_acc*100))
 print('Testing Accuracy: %.3f%%'% (test_acc*100))
 
-review_file='review.txt'
+review_file='review1.txt'
 confidence,sentiment,review=find_sentiment(review_file,vocab,tokenizer,max_length,model)
 
 
